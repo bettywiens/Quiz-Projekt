@@ -9,7 +9,13 @@ h1 {
 }
 
 button {
+    display: block;
     color: white;
     background-color: black;
+}
+
+button.ausgewaehlt {
+    background-color: white;
+    color: black;
 }
 
