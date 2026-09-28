@@ -7,8 +7,8 @@ let ausgewaehlteAntworten = [];
 let punkteFIAE = 0;
 let punkteFISI = 0;
 
-let vorherigePunkteFIAE = 0;
-let vorherigePunkteFISI = 0;
+let vorherigePunkteFIAE = []; /* wir brauchen vorheige Punkte für alle Fragen */
+let vorherigePunkteFISI = [];
 
 function zeigeFrage(){
     ausgewaehlteAntwort = null; /* Antwortauswahl wird bei jeder Frage zurückgesetzt */
@@ -36,17 +36,17 @@ function zeigeFrage(){
 
             ausgewaehlteAntwort = aktuelleFrage.antworten[i]; /* Wenn eine Antwort ausgewählt wird, wird diese Auswahl gespeichert */
 
-            punkteFIAE -= vorherigePunkteFIAE;
-            punkteFISI -= vorherigePunkteFISI;
+            punkteFIAE -= vorherigePunkteFIAE[aktuelleFrageIndex] || 0; /* vorherige Punkte werden abgezogen, falls Antwort geändert wird */
+            punkteFISI -= vorherigePunkteFISI[aktuelleFrageIndex] || 0;
 
-            punkteFIAE += aktuelleFrage.punkteFIAE[i];
+            punkteFIAE += aktuelleFrage.punkteFIAE[i]; /* die Punkte der aktuellen Frage werden hinzugefügt */
             punkteFISI += aktuelleFrage.punkteFISI[i];
 
-            vorherigePunkteFIAE = aktuelleFrage.punkteFIAE[i];
-            vorherigePunkteFISI = aktuelleFrage.punkteFISI[i];
+            vorherigePunkteFIAE[aktuelleFrageIndex] = aktuelleFrage.punkteFIAE[i]; /* jetzige Punkte werden als vorherige Punkte festgelegt */
+            vorherigePunkteFISI[aktuelleFrageIndex] = aktuelleFrage.punkteFISI[i];
 
-            console.log(punkteFIAE);
-            console.log(punkteFISI);
+            console.log("FIAE:", punkteFIAE);
+            console.log("FISI:", punkteFISI);
 
             ausgewaehlteAntworten[aktuelleFrageIndex] = ausgewaehlteAntwort; /* Antwort wird gespeichert */
             
@@ -61,9 +61,17 @@ function zeigeFrage(){
 function zeigeErgebnis() {
     const ergebnis = document.getElementById("ergebnis");
     
-    ergebnis.textContent = ausgewaehlteAntworten;
-}
+    ergebnis.textContent = "FISI Punkte: " + punkteFISI + "\nFIAE Punkte: " + punkteFIAE;
 
+    if (punkteFIAE > punkteFISI) {
+        ergebnis.textContent = "Deine passende Fachrichtung ist:\nAnwendungsentwicklung.";
+    } else if (punkteFISI > punkteFIAE) {
+        ergebnis.textContent = "Deine passende Fachrichtung ist:\nSystemintegration.";
+    } else {
+        ergebnis.textContent = "Es herrscht Gleichstand für beide Fachrichtungen.";
+    }
+    
+}
 const weiterButton = document.getElementById("weiter");
 
 weiterButton.addEventListener("click", function(){
