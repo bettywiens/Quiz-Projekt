@@ -13,6 +13,10 @@ let vorherigePunkteFISI = [];
 function zeigeFrage(){
     ausgewaehlteAntwort = null; /* Antwortauswahl wird bei jeder Frage zurückgesetzt */
 
+    if (ausgewaehlteAntworten[aktuelleFrageIndex] != null) {
+        ausgewaehlteAntwort = ausgewaehlteAntworten[aktuelleFrageIndex];
+    }
+
     const quiz = document.getElementById("quiz"); /* sucht div id="quiz" */
 
     const aktuelleFrage = fachrichtungsFragen[aktuelleFrageIndex]; /* holt erstmal die erste Frage */
@@ -23,6 +27,10 @@ function zeigeFrage(){
         const button = document.createElement("button"); /* erstellt für jedes Element einen button */
 
         button.textContent = aktuelleFrage.antworten[i]; /* gibt button den jeweiligen Text von der Antwort */
+
+        if(ausgewaehlteAntwort == aktuelleFrage.antworten[i]) {
+            button.classList.add("ausgewaehlt");
+        }
 
         button.addEventListener("click", function(){
             const vorherigeAuswahl = quiz.querySelector(".ausgewaehlt"); /* Sucht nach einem button mit der jeweiligen Klasse */
@@ -52,6 +60,12 @@ function zeigeFrage(){
             
             console.log(ausgewaehlteAntworten);
         });
+
+        if(aktuelleFrageIndex == 0) {
+            zurueckButton.style.display = "none";
+        } else {
+            zurueckButton.style.display = "block";
+        }
         
         quiz.appendChild(button); /* setzte button auf die website */
     }
@@ -59,17 +73,42 @@ function zeigeFrage(){
 
 
 function zeigeErgebnis() {
-    const ergebnis = document.getElementById("ergebnis");
+    let prozentFIAE = (punkteFIAE / 12) * 100;
+    let prozentFISI = (punkteFISI / 12) * 100;
+    let passendeFachrichtung = "";
     
-    ergebnis.textContent = "FISI Punkte: " + punkteFISI + "\nFIAE Punkte: " + punkteFIAE;
+    const ergebnis = document.getElementById("ergebnis");
 
     if (punkteFIAE > punkteFISI) {
-        ergebnis.textContent = "Deine passende Fachrichtung ist:\nAnwendungsentwicklung.";
+        passendeFachrichtung = "Anwendungsentwicklung";
     } else if (punkteFISI > punkteFIAE) {
-        ergebnis.textContent = "Deine passende Fachrichtung ist:\nSystemintegration.";
+        passendeFachrichtung = "Systemintegration";
     } else {
-        ergebnis.textContent = "Es herrscht Gleichstand für beide Fachrichtungen.";
+        passendeFachrichtung = "Gleichstand";
     }
+
+    ergebnis.innerHTML = `
+        <div>
+            <p>Deine passende Fachrichtung ist:</p>
+            <h2>${passendeFachrichtung}</h2>
+            <p>Anwendungsentwicklung: ${punkteFIAE} / 12 Punkte</p>
+            <div class="balken">
+                <div class="balken-fuellung" style="width: ${prozentFIAE}%"></div>
+            </div>
+
+            <p>Systemintegration: ${punkteFISI} / 12 Punkte</p>
+            <div class="balken">
+                <div class="balken-fuellung" style="width: ${prozentFISI}%"></div>
+            </div>
+        </div>
+    `;
+    
+    console.log("FIAE Prozent: ", prozentFIAE);
+    console.log("FISI Prozent: ", prozentFISI);
+
+    
+    /*ergebnis.textContent = "FISI Punkte: " + punkteFISI + "\nFIAE Punkte: " + punkteFIAE;*/
+
     
 }
 const weiterButton = document.getElementById("weiter");
@@ -89,6 +128,15 @@ weiterButton.addEventListener("click", function(){
         zeigeFrage();
     }
 
+})
+
+const zurueckButton = document.getElementById("zurueck");
+
+zurueckButton.addEventListener("click", function(){
+    if(aktuelleFrageIndex > 0) {
+        aktuelleFrageIndex--;
+        zeigeFrage();
+    }
 })
 
 zeigeFrage();
