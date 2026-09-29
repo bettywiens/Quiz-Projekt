@@ -17,11 +17,17 @@ function zeigeFrage(){
         ausgewaehlteAntwort = ausgewaehlteAntworten[aktuelleFrageIndex];
     }
 
-    const quiz = document.getElementById("quiz"); /* sucht div id="quiz" */
+    /*const quiz = document.getElementById("quiz");  sucht div id="quiz" */
+    const frage = document.getElementById("frage");
+    const antworten = document.getElementById("antworten");
+
+    antworten.innerHTML = "";
 
     const aktuelleFrage = fachrichtungsFragen[aktuelleFrageIndex]; /* holt erstmal die erste Frage */
+    
+    frage.textContent = aktuelleFrage.frage;
 
-    quiz.innerHTML = aktuelleFrage.frage; /* greifen auf den Text der Frage zu */     
+    /*antworten.innerHTML = aktuelleFrage.frage;  greifen auf den Text der Frage zu */     
 
     for (let i = 0; i < aktuelleFrage.antworten.length; i++) {
         const button = document.createElement("button"); /* erstellt für jedes Element einen button */
@@ -67,7 +73,7 @@ function zeigeFrage(){
             zurueckButton.style.display = "block";
         }
         
-        quiz.appendChild(button); /* setzte button auf die website */
+        antworten.appendChild(button); /* setzte button auf die website */
     }
 }
 
