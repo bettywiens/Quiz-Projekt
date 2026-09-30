@@ -27,6 +27,10 @@ function zeigeFrage(){
     
     frage.textContent = aktuelleFrage.frage;
 
+    const bild = document.getElementById("bild");
+
+    bild.innerHTML = `<img src="${aktuelleFrage.bild}" alt="Bild zur Frage">`;
+
     /*antworten.innerHTML = aktuelleFrage.frage;  greifen auf den Text der Frage zu */     
 
     for (let i = 0; i < aktuelleFrage.antworten.length; i++) {
@@ -72,6 +76,12 @@ function zeigeFrage(){
         } else {
             zurueckButton.style.display = "block";
         }
+
+        if (aktuelleFrageIndex == fachrichtungsFragen.length - 1) {
+            weiterButton.textContent = "Ergebnis anzeigen";
+        } else {
+            weiterButton.textContent = "Weiter";
+        }
         
         antworten.appendChild(button); /* setzte button auf die website */
     }
@@ -83,7 +93,10 @@ function zeigeErgebnis() {
     let prozentFISI = (punkteFISI / 12) * 100;
     let passendeFachrichtung = "";
     
-    const ergebnis = document.getElementById("ergebnis");
+    localStorage.setItem("punkteFIAE", punkteFIAE);
+    localStorage.setItem("punkteFISI", punkteFISI);
+
+    window.location.href = "ergebnis.html";
 
     if (punkteFIAE > punkteFISI) {
         passendeFachrichtung = "Anwendungsentwicklung";

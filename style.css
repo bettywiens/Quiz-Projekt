@@ -1,14 +1,15 @@
 :root {
-    --orange: #ee7203;
+    --orange: rgb(238, 114, 3);
     --orange-subtile: #f39c4e;
+    --orange-opaque:#ee710380;
     --highlight-blue: #0081a0;
-    --blue: #009dc5;
+    --blue: rgb(0, 157, 197);
     --grey: #F0F0F0;
     --opaqueGrey: #f0f0f07e;
     --border-radius: 30px;
     --green: #97BE0D;
     --darkblue: #004476;
-    --nightblue: #001a2c;
+    --nightblue: rgb(0, 26, 44);
 }
 
 @font-face {
@@ -29,20 +30,26 @@ h1 {
  color:white;
 }
 
-h2 {
+#frage {
     font-size: 30px;
 }
 
 button {
     color: var(--grey);
     background-color: var(--nightblue);
-    border: 1px solid var(--grey);
+    border:none;
     border-radius: 15px;
 }
 
+button:hover {
+    background-color: var(--orange-opaque);
+    border:none;
+    color: var(--grey);
+}
+
 button.ausgewaehlt {
-    background-color: var(--grey);
-    color: black;
+    background-color: var(--orange);
+    color: var(--grey);
 }
 
 .balken {
@@ -62,16 +69,18 @@ button.ausgewaehlt {
 }
 
 #quiz {
-    border: 2px solid var(--grey);
-    border-radius: 10px;
+    /*border: 5px solid var(--orange-opaque);*/
+    background-color: var(--darkblue);
+    border-radius: 20px;
     margin: 100px;
     margin-top: 20px;
-    
+    padding: 15px;
 }
 
 #frage {
-    padding: 15px;
+    
     text-align: center;
+    
 }
 
 .quiz-inhalt {
@@ -79,15 +88,20 @@ button.ausgewaehlt {
     grid-template-columns: 1fr 1fr;
     gap: 30px;
     /* border: 1px solid red; */
-    padding-right:15px;
-    padding-bottom:15px;
+    padding:25px;    
 }
 
-.bild {
-    border: 1px solid white;
-    min-height: 300px;
-    padding-left: 15px;
-    padding-bottom: 15px;
+#bild {
+    /*border: 1px solid white;*/
+    min-height: 300px;    
+}
+
+#bild img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50px;
+    box-shadow: 10px 10px 10px rgba(0, 26, 44, 0.506);
 }
 
 #antworten {
@@ -105,14 +119,27 @@ button.ausgewaehlt {
 .navigation {
     display: flex;
     justify-content: space-between;
+    width: 100%;
     margin-top: 30px;
 }
 
 .navigation button {
-    padding: 10px;
-    border-radius: 0px;
+    padding: 20px;
+    border-radius: 30px;
     border: none;
-    color: --grey;
+    color: var(--nightblue);
     background-color: var(--opaqueGrey);
     /* opacity: 0.5; */
 }
+
+.navigation button:hover {
+    background-color: var(--orange);
+    color: var(--grey);
+}
+
+#weiter {
+    margin-left: auto;
+}
+
+
+
