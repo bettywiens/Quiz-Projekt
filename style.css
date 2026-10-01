@@ -93,7 +93,8 @@ button.ausgewaehlt {
 
 #bild {
     /*border: 1px solid white;*/
-    min-height: 300px;    
+    min-height: 300px;   
+    max-height: 200px; 
 }
 
 #bild img {
