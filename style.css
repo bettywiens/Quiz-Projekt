@@ -21,6 +21,7 @@
 }
 
 body {
+ 
  font-family: 'realist', sans-serif;
  background-color: var(--nightblue);
  color: var(--grey);
@@ -55,13 +56,13 @@ button.ausgewaehlt {
 .balken {
     width: 300px;
     height: 20px;
-    border: 1px solid var(--grey);
+    border: 1px solid var(--orange);
     margin-bottom: 20px;
 }
 
 .balken-fuellung {
     height: 100%;
-    background-color: var(--grey);
+    background-color: var(--orange);
 }
 #logo img {
     height: 100px;
@@ -75,6 +76,55 @@ button.ausgewaehlt {
     margin: 100px;
     margin-top: 20px;
     padding: 15px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#ergebnis-inhalt {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    justify-content: center;
+    width: 100%;
+}
+
+#ergebnis-titel{
+    text-align: center;
+    font-size: 50px;
+    font-weight: 500;
+    color: var(--grey);
+    margin-top: 0;
+}
+
+#ergebnis {
+    justify-content: center;
+    
+}
+
+#fachrichtung-titel {
+    font-size: 40px;
+    font-weight: 400;
+    color: var(--green);
+}
+
+#balken-darstellung {
+    justify-items: center;
+}
+
+.ergebnis-darstellung {
+    background-color: var(--darkblue);
+    border-radius: 20px;
+    margin: 100px;
+    margin-top: 20px;
+    padding: 15px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.ergebnis-darstellung p {
+    text-align: center;
+    font-size: 25px;
 }
 
 #frage {
@@ -94,7 +144,7 @@ button.ausgewaehlt {
 #bild {
     /*border: 1px solid white;*/
     min-height: 300px;   
-    max-height: 200px; 
+    max-height: 350px; 
 }
 
 #bild img {
@@ -121,7 +171,6 @@ button.ausgewaehlt {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-top: 30px;
 }
 
 .navigation button {
@@ -130,6 +179,7 @@ button.ausgewaehlt {
     border: none;
     color: var(--nightblue);
     background-color: var(--opaqueGrey);
+    font-size: 15px;
     /* opacity: 0.5; */
 }
 
@@ -140,6 +190,11 @@ button.ausgewaehlt {
 
 #weiter {
     margin-left: auto;
+}
+
+.weiterleiten {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 

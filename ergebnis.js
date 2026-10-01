@@ -24,17 +24,19 @@ console.log("Ergebnis: ", passendeFachrichtung);
 
 const ergebnis = document.getElementById("ergebnis");
 ergebnis.innerHTML = `
-    <div>
+    <div class="ergebnis-darstellung">
         <p>Deine passende Fachrichtung ist:</p>
-        <h2>${passendeFachrichtung}</h2>
-        <p>Anwendungsentwicklung: ${punkteFIAE} / 12 Punkte</p>
-        <div class="balken">
-            <div class="balken-fuellung" style="width: ${prozentFIAE}%"></div>
-        </div>
+        <p id="fachrichtung-titel">${passendeFachrichtung}<p>
+        <div id="balken-darstellung">
+            <p>Anwendungsentwicklung: ${punkteFIAE} / 12 Punkte</p>
+            <div class="balken">
+                <div class="balken-fuellung" style="width: ${prozentFIAE}%"></div>
+            </div>
 
-        <p>Systemintegration: ${punkteFISI} / 12 Punkte</p>
-        <div class="balken">
-            <div class="balken-fuellung" style="width: ${prozentFISI}%"></div>
+            <p>Systemintegration: ${punkteFISI} / 12 Punkte</p>
+            <div class="balken">
+                <div class="balken-fuellung" style="width: ${prozentFISI}%"></div>
+            </div>
         </div>
     </div>
 `;
@@ -43,13 +45,13 @@ const weiteresQuiz = document.getElementById("weiteres-quiz");
 
 if (passendeFachrichtung == "Anwendungsentwicklung") {
     weiteresQuiz.innerHTML = `
-        <button onclick="window.location.href='FIAE-Quiz.html'">
+        <button onclick="window.location.href='FIAE-Quiz.html'" class="weiterleiten">
             Zum FIAE-Quiz
         </button>
     `;
 } else if (passendeFachrichtung == "Systemintegration") {
     weiteresQuiz.innerHTML = `
-        <button onclick="window.location.href='FISI-Quiz.html'">
+        <button onclick="window.location.href='FISI-Quiz.html'" class="weiterleiten">
             Zum FISI-Quiz
         </button>
     `;
