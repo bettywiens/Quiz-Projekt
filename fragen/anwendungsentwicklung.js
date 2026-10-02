@@ -8,7 +8,7 @@ const anwendungsentwicklungFragen = [
             "FluxScript"
         ],
         richtigeAntwort: 3,
-        tipp: "Hallo",
+        tipp: "",
         erklaerung: "FluxScript ist eine ausgedachte Programmiersprache. Der Name ist angelehnt an die bekannten Programmiersprachen JavaScript und TypeScript."
 
     },
