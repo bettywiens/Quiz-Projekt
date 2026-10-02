@@ -1,97 +1,127 @@
-let ausgewaehlteAntwort = null;
-
 let aktuelleFrageIndex = 0;
+let antwortAusgewaehlt = null;
+let tippText;
+let tippButton;
+let antwortButton;
+let weiterButton;
+let zurueckButton;
 
-let ausgewaehlteAntworten = [];
+const frageElement = document.getElementById("frage");
+const antwortenElement = document.getElementById("antworten");
+weiterButton = document.getElementById("weiter");
+zurueckButton = document.getElementById("zurueck");
 
+function zeigeFrage() {  
+    antwortAusgewaehlt = null;
 
-function zeigeFrage(){
-    ausgewaehlteAntwort = null; /* Antwortauswahl wird bei jeder Frage zurückgesetzt */
+    weiterButton.disabled = true;
 
-    if (ausgewaehlteAntworten[aktuelleFrageIndex] != null) {
-        ausgewaehlteAntwort = ausgewaehlteAntworten[aktuelleFrageIndex];
-    }
+    const aktuelleFrage = anwendungsentwicklungFragen[aktuelleFrageIndex];
 
-    /*const quiz = document.getElementById("quiz");  sucht div id="quiz" */
-    const frage = document.getElementById("frage");
-    const antworten = document.getElementById("antworten");
+    frageElement.textContent = aktuelleFrage.frage;
 
-    antworten.innerHTML = "";
+    antwortenElement.innerHTML = "";
 
-    const aktuelleFrage = anwendungsentwicklungFragen[aktuelleFrageIndex]; /* holt erstmal die erste Frage */
-    
-    frage.textContent = aktuelleFrage.frage;
+    aktuelleFrage.antworten.forEach(function(antwort, index) {
+        const button = document.createElement("button");
 
-    /*antworten.innerHTML = aktuelleFrage.frage;  greifen auf den Text der Frage zu */     
+        button.textContent = antwort;
+        button.classList.add("antwort-button");
 
-    for (let i = 0; i < aktuelleFrage.antworten.length; i++) {
-        const button = document.createElement("button"); /* erstellt für jedes Element einen button */
-
-        button.textContent = aktuelleFrage.antworten[i]; /* gibt button den jeweiligen Text von der Antwort */
-
-        if(ausgewaehlteAntwort == aktuelleFrage.antworten[i]) {
-            button.classList.add("ausgewaehlt");
-        }
-
-        button.addEventListener("click", function(){
-            const vorherigeAuswahl = quiz.querySelector(".ausgewaehlt"); /* Sucht nach einem button mit der jeweiligen Klasse */
-
-            if (vorherigeAuswahl) {
-                vorherigeAuswahl.classList.remove("ausgewaehlt"); /* Wenn gefunden wurde entfernen wir es */
+        button.addEventListener("click", function() {
+            if (button.disabled) {
+                return;
             }
 
-            button.classList.add("ausgewaehlt"); /* wir markieren den ausgeahlten button */
-            
+            antwortAusgewaehlt = index;
 
-            ausgewaehlteAntwort = aktuelleFrage.antworten[i]; /* Wenn eine Antwort ausgewählt wird, wird diese Auswahl gespeichert */
+            const alleButtons = antwortenElement.querySelectorAll(".antwort-button");
 
-            ausgewaehlteAntworten[aktuelleFrageIndex] = ausgewaehlteAntwort; /* Antwort wird gespeichert */
-            
-            console.log(ausgewaehlteAntworten);
+            alleButtons.forEach(function(button) {
+                button.classList.remove("ausgewaehlt");
+            });
+
+            button.classList.add("ausgewaehlt");
         });
 
-        if(aktuelleFrageIndex == 0) {
-            zurueckButton.style.display = "none";
+        antwortenElement.appendChild(button);
+    });
+
+    tippButton = document.createElement("button");
+    tippButton.textContent = "› Tipp";;
+
+    tippText = document.createElement("div");
+    tippText.textContent = aktuelleFrage.tipp;
+    tippText.style.display = "none";
+
+    tippButton.addEventListener("click", function() {
+        if (tippText.style.display == "none") {
+            tippText.style.display = "block";
+            tippButton.textContent = "⌄ Tipp";
         } else {
-            zurueckButton.style.display = "block";
+            tippText.style.display = "none";
+            tippButton.textContent = "› Tipp";
+        }
+    });
+
+    antwortenElement.appendChild(tippButton);
+    antwortenElement.appendChild(tippText);
+
+    antwortButton = document.createElement("button");
+
+    antwortButton.textContent = "Antwort prüfen";
+    
+    antwortButton.style.display = "block";
+    
+    antwortButton.addEventListener("click", function() {
+        if (antwortAusgewaehlt == null) {
+            alert("Bitte wähle zuerst eine Antwort aus.");
+            return;
         }
 
-        if (aktuelleFrageIndex == fachrichtungsFragen.length - 1) {
-            weiterButton.textContent = "Ergebnis anzeigen";
-        } else {
-            weiterButton.textContent = "Weiter";
-        }
-        
-        antworten.appendChild(button); /* setzte button auf die website */
-    }
+        pruefeAntwort();
+    });
+
+    antwortenElement.appendChild(antwortButton);
 }
 
-const weiterButton = document.getElementById("weiter");
+function pruefeAntwort() {
+    const aktuelleFrage = anwendungsentwicklungFragen[aktuelleFrageIndex];
 
-weiterButton.addEventListener("click", function(){
-    
-    /* Überpüfen ob eine Antwort ausgewählt wurde */
-    if (ausgewaehlteAntwort == null) { 
-        alert("Bitte wähle zuerst eine Antwort aus.");
-        return;
+    const antwortButtons = antwortenElement.querySelectorAll(".antwort-button");
+
+    antwortButtons.forEach(function(button) {
+        button.disabled = true;
+    });
+
+    if (antwortAusgewaehlt == aktuelleFrage.richtigeAntwort) {
+        antwortButtons[antwortAusgewaehlt].classList.add("richtig");
+    } else {
+        antwortButtons[antwortAusgewaehlt].classList.add("falsch");
+        antwortButtons[aktuelleFrage.richtigeAntwort].classList.add("richtig");
     }
 
-    if (aktuelleFrageIndex == fachrichtungsFragen.length - 1){
-        zeigeErgebnis();
-    } else {
+    tippButton.textContent = "⌄ Erklärung";
+    tippText.textContent = aktuelleFrage.erklaerung;
+    tippText.style.display = "block";
+
+    antwortButton.style.display = "none";
+
+    weiterButton.disabled = false;
+}
+
+zeigeFrage();
+
+weiterButton.addEventListener("click", function() {
+    if (aktuelleFrageIndex < anwendungsentwicklungFragen.length - 1) {
         aktuelleFrageIndex++;
         zeigeFrage();
     }
+});
 
-})
-
-const zurueckButton = document.getElementById("zurueck");
-
-zurueckButton.addEventListener("click", function(){
-    if(aktuelleFrageIndex > 0) {
+zurueckButton.addEventListener("click", function() {
+    if (aktuelleFrageIndex > 0) {
         aktuelleFrageIndex--;
         zeigeFrage();
     }
-})
-
-zeigeFrage();
+});

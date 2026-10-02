@@ -8,7 +8,7 @@ const anwendungsentwicklungFragen = [
             "FluxScript"
         ],
         richtigeAntwort: 3,
-        tipp: "",
+        tipp: "Hallo",
         erklaerung: "FluxScript ist eine ausgedachte Programmiersprache. Der Name ist angelehnt an die bekannten Programmiersprachen JavaScript und TypeScript."
 
     },
@@ -115,7 +115,7 @@ const anwendungsentwicklungFragen = [
             "String (Zeichenkette) | Beispiel: \"drei\"",
             "Boolean (Wahrheitswert) | Beispiel: true"
         ],
-        richtigeAntwort: 2,
+        richtigeAntwort: 0,
         tipp: "Welchem Beispiel ist der Preis eines Artikel am ähnlichsten?",
         erklaerung: "Für einen Wert wie 4.99 ist eine Fließkommazahl am besten geeignet, da alle andere \"Datentypen\" nicht in der Lage sind die Zahl so zu speichern, dass man auch im Nachhinein noch damit arbeiten kann.\nBeispielsweise könnte man 4.99 auch als String speichern also:\nmeineZahl = \"4.99\";Allerdings würde unsere Programmiersprache dies nicht als Zahl, sondern als Text interpretieren, und somit sind wir nicht mehr in der Lage mit diesem Wert Rechnungen durchzuführen.",
     },
