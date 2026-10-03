@@ -43,16 +43,12 @@ ergebnis.innerHTML = `
 
 const weiteresQuiz = document.getElementById("weiteres-quiz");
 
-if (passendeFachrichtung == "Anwendungsentwicklung") {
-    weiteresQuiz.innerHTML = `
-        <button onclick="window.location.href='FIAE-Quiz.html'" class="weiterleiten">
-            Zum FIAE-Quiz
-        </button>
-    `;
-} else if (passendeFachrichtung == "Systemintegration") {
-    weiteresQuiz.innerHTML = `
-        <button onclick="window.location.href='FISI-Quiz.html'" class="weiterleiten">
-            Zum FISI-Quiz
-        </button>
-    `;
-}
+weiteresQuiz.innerHTML = `
+    <button onclick="window.location.href='fiae-start.html'" class="weiterleiten"">
+        Zum FIAE-Quiz
+    </button>
+
+    <button onclick="window.location.href='fisi-start.html'" class="weiterleiten"">
+        Zum FISI-Quiz
+    </button>
+`

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/start-style.css">
+    <title>FIAE Quiz</title>
+</head>
+<body>
+
+    <div id="logo">
+        <img src="bilder/logo.svg">
+    </div>
+
+    <main>
+        <h1>Quiz Anwendungsentwicklung</h1>
+
+        <div class="box">
+    
+            <h2>
+                Wie gut kennst du dich mit der Anwendungsentwicklung aus?
+            </h2>
+    
+            <button id="quiz-starten">Quiz starten!</button>
+        </div>
+
+    </main>
+    
+    <script>
+        document.getElementById("quiz-starten").addEventListener("click", function() {
+            window.location = "fiae-quiz.html";
+        });
+    </script>
+
+</body>
+</html>

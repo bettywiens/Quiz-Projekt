@@ -4,11 +4,13 @@
     --orange-opaque:#ee710380;
     --highlight-blue: #0081a0;
     --blue: rgb(0, 157, 197);
+    --light-blue: rgb(31, 189, 228);
+    --opaque-blue: rgba(51, 214, 255, 0.349);
     --grey: #F0F0F0;
     --opaqueGrey: #f0f0f07e;
     --border-radius: 30px;
     --green: #97BE0D;
-    --darkblue: #004476;
+    --darkblue: #013a63;
     --nightblue: rgb(0, 26, 44);
 }
 
@@ -20,11 +22,23 @@
     src: url(../fonts/Realist-Light_200804_151613.woff2) format('woff2'),url(../fonts/Realist-Light_200804_151608.woff) format('woff')
 }
 
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 13, 22, 0.9);
+    z-index: -1;
+}
+
 body {
- 
- font-family: 'realist', sans-serif;
- background-color: var(--nightblue);
- color: var(--grey);
+    min-height: 100vh;
+    background-image: url("../bilder/background.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'realist', sans-serif;
+    background-color: var(--nightblue);
+    color: var(--grey);
 }
 
 h1 {
@@ -162,7 +176,7 @@ button.ausgewaehlt {
     border-radius: 30px;
     border: none;
     color: var(--nightblue);
-    background-color: var(--opaqueGrey);
+    background-color: var(--opaque-blue);
     font-size: 15px;
     /* opacity: 0.5; */
 }

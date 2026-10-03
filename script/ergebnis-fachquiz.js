@@ -13,3 +13,9 @@ ergebnisElement.textContent = "Du hast " + richtigeAntworten + " von " + anzahlF
 const ueberschriftElement = document.getElementById("ueberschrift");
 
 ueberschriftElement.textContent = "Quiz " + fachrichtung + " abgeschlossen!";
+
+const zurueckButton = document.getElementById("zurueck-zum-ersten-quiz");
+
+zurueckButton.addEventListener("click", function() {
+    window.location.href = "ergebnis.html";
+})
