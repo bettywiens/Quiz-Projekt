@@ -1,5 +1,10 @@
 let aktuelleFrageIndex = 0;
 let antwortAusgewaehlt = null;
+let ausgewaehlteAntworten = []; 
+let gepruefteFragen = [];
+let richtigeAntworten = 0;
+
+let istErklaerung = false;
 let tippText;
 let tippButton;
 let antwortButton;
@@ -13,8 +18,17 @@ zurueckButton = document.getElementById("zurueck");
 
 function zeigeFrage() {  
     antwortAusgewaehlt = null;
+    istErklaerung = false;
 
     weiterButton.disabled = true;
+
+    if (aktuelleFrageIndex == systemintegrationFragen.length -1) {
+        weiterButton.textContent = "Quiz beenden";
+    } else {
+        weiterButton.textContent = "Weiter";
+    }
+
+    zurueckButton.style.display = aktuelleFrageIndex == 0 ? "none" : "block";
 
     const aktuelleFrage = systemintegrationFragen[aktuelleFrageIndex];
 
@@ -28,12 +42,18 @@ function zeigeFrage() {
         button.textContent = antwort;
         button.classList.add("antwort-button");
 
+        if (ausgewaehlteAntworten[aktuelleFrageIndex] == index) {
+            button.classList.add("ausgewaehlt");
+            antwortAusgewaehlt = index;
+        }
+
         button.addEventListener("click", function() {
             if (button.disabled) {
                 return;
             }
 
             antwortAusgewaehlt = index;
+            ausgewaehlteAntworten[aktuelleFrageIndex] = index;
 
             const alleButtons = antwortenElement.querySelectorAll(".antwort-button");
 
@@ -57,10 +77,19 @@ function zeigeFrage() {
     tippButton.addEventListener("click", function() {
         if (tippText.style.display == "none") {
             tippText.style.display = "block";
-            tippButton.textContent = "⌄ Tipp";
+            if (istErklaerung) {
+                tippButton.textContent = "⌄ Erklärung";
+            } else {
+                tippButton.textContent = "⌄ Tipp";
+            }
+
         } else {
             tippText.style.display = "none";
-            tippButton.textContent = "› Tipp";
+            if (istErklaerung) {
+                tippButton.textContent = "› Erklärung";
+            } else {
+                tippButton.textContent = "› Tipp";
+            }
         }
     });
 
@@ -83,11 +112,21 @@ function zeigeFrage() {
     });
 
     antwortenElement.appendChild(antwortButton);
+
+    if (gepruefteFragen[aktuelleFrageIndex] == true) {
+        pruefeAntwort();
+    }
 }
 
 function pruefeAntwort() {
     const aktuelleFrage = systemintegrationFragen[aktuelleFrageIndex];
-
+    
+    const warSchonGeprueft = gepruefteFragen[aktuelleFrageIndex] == true;
+    
+    if (!warSchonGeprueft && antwortAusgewaehlt == aktuelleFrage.richtigeAntwort) {
+        richtigeAntworten++;
+    }
+    
     const antwortButtons = antwortenElement.querySelectorAll(".antwort-button");
 
     antwortButtons.forEach(function(button) {
@@ -101,6 +140,8 @@ function pruefeAntwort() {
         antwortButtons[aktuelleFrage.richtigeAntwort].classList.add("richtig");
     }
 
+    istErklaerung = true;
+
     tippButton.textContent = "⌄ Erklärung";
     tippText.textContent = aktuelleFrage.erklaerung;
     tippText.style.display = "block";
@@ -108,6 +149,8 @@ function pruefeAntwort() {
     antwortButton.style.display = "none";
 
     weiterButton.disabled = false;
+
+    gepruefteFragen[aktuelleFrageIndex] = true;
 }
 
 zeigeFrage();
@@ -116,6 +159,12 @@ weiterButton.addEventListener("click", function() {
     if (aktuelleFrageIndex < systemintegrationFragen.length - 1) {
         aktuelleFrageIndex++;
         zeigeFrage();
+    } else {
+        localStorage.setItem("richtigeAntworten", richtigeAntworten);
+        localStorage.setItem("anzahlFragen", systemintegrationFragen.length);
+        localStorage.setItem("fachrichtung", "Anwendungsentwicklung");
+        
+        window.location.href = "ergebnis-fachquiz.html";
     }
 });
 
