@@ -8,7 +8,7 @@ balkenfuellung.style.width = prozent + "%";
 
 const ergebnisElement = document.getElementById("ergebnis");
 
-ergebnisElement.textContent = "Du hast " + richtigeAntworten + " von " + anzahlFragen + " Fragen richtig beantwortet.";
+ergebnisElement.innerHTML = "Du hast <span class='orange'>" + richtigeAntworten + " / " + anzahlFragen + "</span> Fragen richtig beantwortet.";
 
 const ueberschriftElement = document.getElementById("ueberschrift");
 

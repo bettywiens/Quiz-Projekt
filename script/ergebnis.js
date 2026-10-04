@@ -5,17 +5,19 @@ if (localStorage.getItem("punkteFIAE") === null || localStorage.getItem("punkteF
 const punkteFIAE = Number(localStorage.getItem("punkteFIAE"));
 const punkteFISI = Number(localStorage.getItem("punkteFISI"));
 
-const prozentFIAE = (punkteFIAE / 12) * 100;
-const prozentFISI = (punkteFISI / 12) * 100;
+const summePunkte = punkteFIAE + punkteFISI;
+
+const prozentFIAE = Math.round((punkteFIAE / summePunkte) * 100);
+const prozentFISI = Math.round((punkteFISI / summePunkte) * 100);
 
 let passendeFachrichtung = "";
 
 if (punkteFIAE > punkteFISI) {
-    passendeFachrichtung = "Anwendungsentwicklung";
+    passendeFachrichtung = "Anwendungsentwicklung (FIAE)";
 } else if (punkteFISI > punkteFIAE) {
-    passendeFachrichtung = "Systemintegration";
+    passendeFachrichtung = "Systemintegration (FISI)";
 } else {
-    passendeFachrichtung = "Gleichstand";
+    passendeFachrichtung = "Gleichstand (FIAE oder FISI)";
 }
 
 console.log("FIAE: ", punkteFIAE);
@@ -28,12 +30,12 @@ ergebnis.innerHTML = `
         <p>Deine passende Fachrichtung ist:</p>
         <p id="fachrichtung-titel">${passendeFachrichtung}<p>
         <div id="balken-darstellung">
-            <p>Anwendungsentwicklung: ${punkteFIAE} / 12 Punkte</p>
+            <p>Anwendungsentwicklung: <span class='orange'>${prozentFIAE}%</span></p>
             <div class="balken">
                 <div class="balken-fuellung" style="width: ${prozentFIAE}%"></div>
             </div>
 
-            <p>Systemintegration: ${punkteFISI} / 12 Punkte</p>
+            <p>Systemintegration: <span class='orange'>${prozentFISI}%</span></p>
             <div class="balken">
                 <div class="balken-fuellung" style="width: ${prozentFISI}%"></div>
             </div>
