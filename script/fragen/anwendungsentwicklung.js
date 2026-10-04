@@ -105,7 +105,7 @@ const anwendungsentwicklungFragen = [
         ],
         richtigeAntwort: 1,
         tipp: "Computer zählen anders als es Menschen machen.",
-        erklaerung: "Computer fangen in den allermeisten Fällen mit dem Zählen bei 0 an, wenn man es nicht anders definiert.<br>Das heißt, wenn wir eine Liste haben:<br><span class='code'>meineListe = [5, 19, 21, 64];</span><br>Dann ist das <span class='orange'>0. Element</span> oder <span class='code'>meineListe[0]</span> hat den Wert <span class='code'>5</span>.<br>Das <span class='orange'>1. Element</span> oder <span class='code'>meineListe[1]</span> hat den Wert <span class='code'>19</span>.<br>Das <span class='orange'>2. Element</span> oder <span class='code'>meineListe[2]</span> hat den Wert <span class='code'>21</span>.<br>Das <span class='orange'>3. Element</span> oder <span class='code'>meineListe[3]</span> hat den Wert <span class='code'>64</span>.",
+        erklaerung: "Computer fangen in den allermeisten Fällen mit dem Zählen bei <span class='code'>0</span> an, wenn man es nicht anders definiert.<br>Das heißt, wenn wir eine Liste haben:<br><span class='code'>meineListe = [5, 19, 21, 64];</span><br>Dann ist das <span class='orange'>0. Element</span> oder <span class='code'>meineListe[0]</span> hat den Wert <span class='code'>5</span>.<br>Das <span class='orange'>1. Element</span> oder <span class='code'>meineListe[1]</span> hat den Wert <span class='code'>19</span>.<br>Das <span class='orange'>2. Element</span> oder <span class='code'>meineListe[2]</span> hat den Wert <span class='code'>21</span>.<br>Das <span class='orange'>3. Element</span> oder <span class='code'>meineListe[3]</span> hat den Wert <span class='code'>64</span>.",
     },
     {
         frage: "Welcher Datentyp ist am besten geeignet, um den <span class='orange'>Preis eines Artikels</span> (z. B. 4.99) in einem Programm präzise zu speichern?",
@@ -120,7 +120,7 @@ const anwendungsentwicklungFragen = [
         erklaerung: "Für einen Wert wie 4.99 ist eine <span class='orange'>Fließkommazahl</span> am besten geeignet, da alle andere <span class='orange'>\"Datentypen\"</span> nicht in der Lage sind die Zahl so zu speichern, dass man auch im Nachhinein noch damit arbeiten kann.<br>Beispielsweise könnte man 4.99 auch als String speichern also:<br><span class='code'>meineZahl = \"4.99\";</span><br>Allerdings würde unsere Programmiersprache dies nicht als Zahl, sondern als Text interpretieren, und somit sind wir nicht mehr in der Lage mit diesem Wert Rechnungen durchzuführen.",
     },
     {
-        frage: "Gegeben ist die Liste <span class='code'>farben = [\"rot\", \"grün\", \"blau\", \"gelb\"]</span>.<br>Welches Element wird durch den Ausdruck <span class='code'>farben[2]</span> ausgegeben?",
+        frage: "Gegeben ist die Liste:<br><span class='code'>farben = [\"rot\", \"grün\", \"blau\", \"gelb\"]</span>.<br>Welches Element wird durch den Ausdruck <span class='code'>farben[2]</span> ausgegeben?",
         antworten: [
             "<span class='code'>\"rot\"</span>",
             "<span class='code'>\"grün\"</span>",

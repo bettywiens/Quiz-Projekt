@@ -68,15 +68,25 @@ function zeigeFrage() {
     });
 
     tippButton = document.createElement("button");
+    tippButton.classList.add("tipp-button");
     tippButton.textContent = "› Tipp";;
 
     tippText = document.createElement("div");
+    tippText.classList.add("tipp-text");
     tippText.innerHTML = aktuelleFrage.tipp;
     tippText.style.display = "none";
+
+    const tippContainer = document.createElement("div");
+    tippContainer.classList.add("tipp-container");
+
+    tippContainer.appendChild(tippButton);
+    tippContainer.appendChild(tippText);
 
     tippButton.addEventListener("click", function() {
         if (tippText.style.display == "none") {
             tippText.style.display = "block";
+
+            tippButton.classList.add("aufgeklappt");
             if (istErklaerung) {
                 tippButton.textContent = "⌄ Erklärung";
             } else {
@@ -85,6 +95,8 @@ function zeigeFrage() {
 
         } else {
             tippText.style.display = "none";
+
+            tippButton.classList.remove("aufgeklappt");
             if (istErklaerung) {
                 tippButton.textContent = "› Erklärung";
             } else {
@@ -93,8 +105,7 @@ function zeigeFrage() {
         }
     });
 
-    antwortenElement.appendChild(tippButton);
-    antwortenElement.appendChild(tippText);
+    antwortenElement.appendChild(tippContainer);
 
     antwortButton = document.createElement("button");
 
@@ -142,9 +153,11 @@ function pruefeAntwort() {
 
     istErklaerung = true;
 
-    tippButton.textContent = "⌄ Erklärung";
+    tippButton.textContent = "› Erklärung";
     tippText.innerHTML = aktuelleFrage.erklaerung;
-    tippText.style.display = "block";
+    tippText.style.display = "none";
+
+    tippButton.classList.remove("aufgeklappt");
 
     antwortButton.style.display = "none";
 
@@ -162,7 +175,7 @@ weiterButton.addEventListener("click", function() {
     } else {
         localStorage.setItem("richtigeAntworten", richtigeAntworten);
         localStorage.setItem("anzahlFragen", systemintegrationFragen.length);
-        localStorage.setItem("fachrichtung", "Anwendungsentwicklung");
+        localStorage.setItem("fachrichtung", "Systemintegration");
         
         window.location.href = "ergebnis-fachquiz.html";
     }
