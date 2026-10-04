@@ -8,12 +8,12 @@ const anwendungsentwicklungFragen = [
             "FluxScript"
         ],
         richtigeAntwort: 3,
-        tipp: "",
-        erklaerung: "FluxScript ist eine ausgedachte Programmiersprache. Der Name ist angelehnt an die bekannten Programmiersprachen JavaScript und TypeScript."
+        tipp: "Vergleiche die Antworten mit den Programmiersprachen, die du bereits kennst.",
+        erklaerung: "FluxScript ist eine ausgedachte Programmiersprache.\nDer Name ist angelehnt an die bekannten Programmiersprachen <span class='orange'>JavaScript</span> und <span class='orange'>TypeScript</span>."
 
     },
     {
-        frage: "Stell dir vor, du hast eine kleine Box namens punkte. Du tust die Zahl 5 hinein. Danach kommt der Befehl: punkte = punkte + 3. Was befindet sich jetzt in der Box punkte?",
+        frage: "Stell dir vor, du hast eine kleine Box namens <span class='code'>punkte</span> und packst die Zahl <span class='code'>5</span> hinein. Danach kommt der Befehl: <br><span class='code'>punkte = punkte + 3</span>.<br>Was befindet sich jetzt in der Box <span class='code'>punkte</span>?",
         antworten: [
             "3",
             "8",
@@ -21,11 +21,11 @@ const anwendungsentwicklungFragen = [
             "15"
         ],
         richtigeAntwort: 1,
-        tipp: "Denk dran, dass punkte bereits einen Wert von 5 hat.",
-        erklaerung: "Stell es dir so vor, wie gesagt sind in deiner Box 5 Punkte. Wenn wir nun punkte = punkte + 3 rechnen, dann sieht die Rechnung eigentlich so aus:\npunkte = 5 + 3, oder noch anschaulicher:\nneueAnzahlPunkte = alteAnzahlPunkte + 3.\nDies macht Sinn, da auf der linken Seite immer der Name der Variable steht, den wir einen neuen Wert zuteilen wollen, und rechts der neue Wert."
+        tipp: "Denk daran, dass <span class='code'>punkte</span> bereits einen Wert von <span class='code'>5</span> hat.",
+        erklaerung: "Stell es dir so vor, wie gesagt sind in deiner Box <span class='code'>5</span> Punkte. Wenn wir nun <span class='code'>punkte = punkte + 3</span> rechnen, dann sieht die Rechnung eigentlich so aus:<br><span class='code'>punkte = 5 + 3</span>, oder noch anschaulicher:<br><span class='code'>neueAnzahlPunkte = alteAnzahlPunkte + 3</span>.<br>Dies macht Sinn, da auf der linken Seite immer der <span class='orange'>Name der Variable</span> steht, den wir einen neuen Wert zuteilen wollen, und rechts der <span class='orange'>neue Wert</span>."
     },
     {
-        frage: "Du schreibst eine Regel für deinen Wecker: WENN heute Samstag ist, DANN schlafe länger, SONST steh um 7 Uhr auf. Heute ist Dienstag. Was passiert?",
+        frage: "Du schreibst eine Regel für deinen Wecker: <span class='orange'>WENN</span> heute Samstag ist, <span class='orange'>DANN</span> schlafe länger, <span class='orange'>SONST</span> steh um 7 Uhr auf.<br>Heute ist Dienstag. Was passiert?",
         antworten: [
             "Du stehst um 7 Uhr auf.",
             "Du schläfst länger.",
@@ -37,7 +37,7 @@ const anwendungsentwicklungFragen = [
         erklaerung: "Heute ist Dienstag. Wir müssen nur nicht früh aufstehen, wenn es Samstag ist. Da heute Dienstag und nicht Samstag ist, müssen wir um 7 Uhr aufstehen.",
     },
     {
-        frage: "Für ein Fahrgeschäft im Freizeitpark gilt die Regel: Du musst größer als 1,20 m UND mindestens 10 Jahre alt sein. Anna ist 1,35 m groß, aber erst 9 Jahre alt. Darf sie mitfahren?",
+        frage: "Für ein Fahrgeschäft im Freizeitpark gilt die Regel:<br>Du musst größer als 1,20 m <span class='orange'>UND</span> mindestens 10 Jahre alt sein. Anna ist 1,35 m groß, aber erst 9 Jahre alt.<br>Darf sie mitfahren?",
         antworten: [
             "Ja, weil sie groß genug ist.",
             "Ja, weil eine Eigenschaft reicht.",
@@ -45,11 +45,11 @@ const anwendungsentwicklungFragen = [
             "Nein, weil beide Werte zusammen gerechnet werden müssen."
         ],
         richtigeAntwort: 2,
-        tipp: "Betrachte das UND, muss nur eine oder müssen zwei Bedingungen erfüllt sein?",
-        erklaerung: "UND: Damit sie mitfahren darf müssen 2 Bedingungen erfüllt sein. Sie muss 1,20m groß sein und 10 Jahre alt sein. Da sie allerdings nur größer als 1,20 ist und nicht mindestens 10 Jahre alt ist darf sie nicht mitfahren, da nur eine der zwei Bedingungen erfüllt ist.",
+        tipp: "Betrachte das <span class='orange'>UND</span>, muss nur eine oder müssen zwei Bedingungen erfüllt sein?",
+        erklaerung: "<span class='orange'>UND:</span> Damit sie mitfahren darf müssen 2 Bedingungen erfüllt sein.<br>Sie muss 1,20m groß sein <span class='orange'>und</span> 10 Jahre alt sein. Da sie allerdings nur größer als 1,20 ist und nicht mindestens 10 Jahre alt ist darf sie nicht mitfahren, da nur eine der zwei Bedingungen erfüllt ist.",
     },
     {
-        frage: "Im Kino gilt an der Kasse: Du kommst gratis rein, wenn du heute Geburtstag hast ODER eine Jahreskarte besitzt. Max hat heute nicht Geburtstag, hat aber eine Jahreskarte. Kommt er gratis rein?",
+        frage: "Im Kino gilt an der Kasse: Du kommst gratis rein, wenn du heute Geburtstag hast <span class='orange'>ODER</span> eine Jahreskarte besitzt.<br>Max hat heute nicht Geburtstag, hat aber eine Jahreskarte.<br>Kommt er gratis rein?",
         antworten: [
             "Ja, weil eine der beiden Bedingungen erfüllt ist.",
             "Nein, es muss beides gleichzeitig wahr sein.",
@@ -57,11 +57,11 @@ const anwendungsentwicklungFragen = [
             "Ja, aber nur, wenn er zusätzlich Popcorn kauft"
         ],
         richtigeAntwort: 0,
-        tipp: "Betrachte das ODER, muss nur eine oder müssen zwei Bedingungen erfüllt sein?",
-        erklaerung: "ODER: Hier muss nur eine Bedingung erfüllt sein, um gratis ins Kino reinzukommen. Man kommt gratis rein, wenn man eine Jahreskarte hat und man kommt ebenfalls gratis rein, wenn man Geburtstag hat. Max hat eine Jahreskarte, da also eine Bedingung erfüllt ist, kommt er gratis rein.",
+        tipp: "Betrachte das <span class='orange'>ODER</span>, muss nur eine oder müssen zwei Bedingungen erfüllt sein?",
+        erklaerung: "<span class='orange'>ODER</span>: Hier muss nur eine Bedingung erfüllt sein, um gratis ins Kino reinzukommen. Man kommt gratis rein, wenn man eine Jahreskarte hat und man kommt ebenfalls gratis rein, wenn man Geburtstag hat.<br>Max hat eine Jahreskarte, da also eine Bedingung erfüllt ist, kommt er gratis rein.",
     },
     {
-        frage: "Du hast einen Eimer, in den maximal 5 Bälle passen. In deinem Korb liegen 10 Bälle. Du wirfst so lange Bälle in den Eimer, bis er voll ist (also 5 Bälle drin sind). Wie viele Bälle liegen danach im Eimer?",
+        frage: "Du hast einen Eimer, in den <span class='orange'>maximal</span> 5 Bälle passen. In deinem Korb liegen 10 Bälle. Du wirfst so lange Bälle in den Eimer, bis er voll ist.<br>Wie viele Bälle liegen danach im Eimer?",
         antworten: [
             "10 Bälle",
             "Keine Bälle",
@@ -70,10 +70,10 @@ const anwendungsentwicklungFragen = [
         ],
         richtigeAntwort: 3,
         tipp: "Wie viele Bälle passen in den Eimer? In den Eimer können nicht mehr Bälle drin sein, als rein passen.",
-        erklaerung: "Du kannst nur so viele Bälle in den Korb werfen wie auch rein passen. In den Korb passen nur 5 Bälle rein, das bedeutet selbst wenn du mehr als 5 Bälle hast, kannst du trotzdem nur 5 Bälle hineinwerfen, die restlichen bleiben außerhalb des Korbs.",
+        erklaerung: "Du kannst nur so viele Bälle in den Korb werfen wie auch rein passen. In den Korb passen <span class='orange'>nur 5 Bälle</span> rein, das bedeutet selbst wenn du mehr als 5 Bälle hast, kannst du trotzdem nur 5 Bälle hineinwerfen, die restlichen bleiben außerhalb des Korbs.",
     },
     {
-        frage: "Du speicherst einen Namen ab: name = \"Mia\". Später im Code schreibst du: name = \"Leo\". Was gibt der Befehl sage(name) jetzt aus?",
+        frage: "Du speicherst einen Namen ab: <span class='code'>name = \"Mia\"</span>. Später im Code schreibst du: <span class='code'>name = \"Leo\"</span>.<br>Was gibt der Befehl <span class='code'>sage(name)</span> jetzt aus?",
         antworten: [
             "Mia",
             "Gar nichts, es gibt einen Fehler",
@@ -81,11 +81,11 @@ const anwendungsentwicklungFragen = [
             "Mia Leo",
         ],
         richtigeAntwort: 2,
-        tipp: "Das \"=\" teilt einer Variablen einen Wert zu, ein Wert kann im Code geändert werden.",
+        tipp: "Das <span class='code'>=</span> teilt einer Variablen einen Wert zu, ein Wert kann im Code geändert werden.",
         erklaerung: "Jedes mal wenn du einer Variable einen neuen Wert zuweist, wird der alte Wert überschrieben.",
     },
     {
-        frage: "Ein kleiner Roboter steht frei auf dem Flur und hat vor sich keine Wand. Seine Regel lautet: WENN vor dir eine Wand ist, DANN drehe dich nach rechts, SONST gehe einen Schritt vor. Was tut der Roboter?",
+        frage: "Ein kleiner Roboter steht frei auf dem Flur und hat vor sich keine Wand. Seine Regel lautet: <span class='orange'>WENN</span> vor dir eine Wand ist, <span class='orange'>DANN</span> drehe dich nach rechts, <span class='orange'>SONST</span> gehe einen Schritt vor.<br>Was tut der Roboter?",
         antworten: [
             "Er dreht sich nach rechts.",
             "Er bleibt stehen und macht nichts.",
@@ -94,7 +94,7 @@ const anwendungsentwicklungFragen = [
         ],
         richtigeAntwort: 3,
         tipp: "Was macht der Roboter, wenn er auf keine Wand trifft?",
-        erklaerung: "Der Roboter steht frei, er hat also keine Wand vor sich. Wir wissen folgendes: Wenn der Roboter keine Wand vor sich hat, geht er einen Schritt vor. Also wissen wir, dass unser Roboter einen Schritt nach vorne geht.",
+        erklaerung: "Der Roboter steht frei, er hat also keine Wand vor sich.<br>Wir wissen folgendes: Wenn der Roboter keine Wand vor sich hat, geht er einen Schritt vor. Also wissen wir, dass unser Roboter einen Schritt nach vorne geht.",
     },
     {
         frage: "Wenn du beim Programmieren Werte in einer Liste speicherst, fängt der Computer beim Zählen immer bei ___ an.",
@@ -105,34 +105,34 @@ const anwendungsentwicklungFragen = [
         ],
         richtigeAntwort: 1,
         tipp: "Computer zählen anders als es Menschen machen.",
-        erklaerung: "Computer fangen in den allermeisten Fällen mit dem Zählen bei 0 an, wenn man es nicht anderes definiert. Das heißt, wenn wir eine Liste haben:\nmeineListe = (5, 19, 21, 64);\nDann ist das 0.Element oder meineListe[0] hat den Wert 5.\nDas 1. Element oder meineListe[1] hat den Wert 19.\nDas 2. Element oder meineListe[2] hat den Wert 21.\nDas 3. Element oder meineListe[3] hat den Wert 64.",
+        erklaerung: "Computer fangen in den allermeisten Fällen mit dem Zählen bei 0 an, wenn man es nicht anders definiert.<br>Das heißt, wenn wir eine Liste haben:<br><span class='code'>meineListe = [5, 19, 21, 64];</span><br>Dann ist das <span class='orange'>0. Element</span> oder <span class='code'>meineListe[0]</span> hat den Wert <span class='code'>5</span>.<br>Das <span class='orange'>1. Element</span> oder <span class='code'>meineListe[1]</span> hat den Wert <span class='code'>19</span>.<br>Das <span class='orange'>2. Element</span> oder <span class='code'>meineListe[2]</span> hat den Wert <span class='code'>21</span>.<br>Das <span class='orange'>3. Element</span> oder <span class='code'>meineListe[3]</span> hat den Wert <span class='code'>64</span>.",
     },
     {
-        frage: "Welcher Datentyp ist am besten geeignet, um den Preis eines Artikels (z. B. 4.99) in einem Programm präzise zu speichern?",
+        frage: "Welcher Datentyp ist am besten geeignet, um den <span class='orange'>Preis eines Artikels</span> (z. B. 4.99) in einem Programm präzise zu speichern?",
         antworten: [
-            "Float (Fließkommazahl) | Beispiel: 3.14",
-            "Integer (Ganzzahl) | Beispiel: 3",
-            "String (Zeichenkette) | Beispiel: \"drei\"",
-            "Boolean (Wahrheitswert) | Beispiel: true"
+            "Float (Fließkommazahl) | Beispiel: <span class='code'>3.14</span>",
+            "Integer (Ganzzahl) | Beispiel: <span class='code'>3</span>",
+            "String (Zeichenkette) | Beispiel: <span class='code'>\"drei\"</span>",
+            "Boolean (Wahrheitswert) | Beispiel: <span class='code'>true</span>"
         ],
         richtigeAntwort: 0,
         tipp: "Welchem Beispiel ist der Preis eines Artikel am ähnlichsten?",
-        erklaerung: "Für einen Wert wie 4.99 ist eine Fließkommazahl am besten geeignet, da alle andere \"Datentypen\" nicht in der Lage sind die Zahl so zu speichern, dass man auch im Nachhinein noch damit arbeiten kann.\nBeispielsweise könnte man 4.99 auch als String speichern also:\nmeineZahl = \"4.99\";Allerdings würde unsere Programmiersprache dies nicht als Zahl, sondern als Text interpretieren, und somit sind wir nicht mehr in der Lage mit diesem Wert Rechnungen durchzuführen.",
+        erklaerung: "Für einen Wert wie 4.99 ist eine <span class='orange'>Fließkommazahl</span> am besten geeignet, da alle andere <span class='orange'>\"Datentypen\"</span> nicht in der Lage sind die Zahl so zu speichern, dass man auch im Nachhinein noch damit arbeiten kann.<br>Beispielsweise könnte man 4.99 auch als String speichern also:<br><span class='code'>meineZahl = \"4.99\";</span><br>Allerdings würde unsere Programmiersprache dies nicht als Zahl, sondern als Text interpretieren, und somit sind wir nicht mehr in der Lage mit diesem Wert Rechnungen durchzuführen.",
     },
     {
-        frage: "Gegeben ist die Liste farben = [\"rot\", \"grün\", \"blau\", \"gelb\"]. Welches Element wird durch den Ausdruck farben[2] ausgegeben?",
+        frage: "Gegeben ist die Liste <span class='code'>farben = [\"rot\", \"grün\", \"blau\", \"gelb\"]</span>.<br>Welches Element wird durch den Ausdruck <span class='code'>farben[2]</span> ausgegeben?",
         antworten: [
-            "\"rot\"",
-            "\"grün\"",
-            "\"blau\"",
-            "\"gelb\""
+            "<span class='code'>\"rot\"</span>",
+            "<span class='code'>\"grün\"</span>",
+            "<span class='code'>\"blau\"</span>",
+            "<span class='code'>\"gelb\"</span>"
         ],
         richtigeAntwort: 2,
         tipp: "Erinnere dich daran, wo ein Computer anfängt zu zählen.",
-        erklaerung: "Wenn wir anfangen bei 0 zu zählen:\n0. Element: \"rot\"\n1. Element: \"grün\"\n2. Element: \"blau\";\n3. Element: \"gelb\"",
+        erklaerung: "Wenn wir anfangen bei <span class='code'>0</span> zu zählen:<br>0. Element: <span class='code'>\"rot\"</span><br>1. Element: <span class='code'>\"grün\"</span><br>2. Element: <span class='code'>\"blau\"</span><br>3. Element: <span class='code'>\"gelb\"</span>",
     },
     {
-        frage: "Welches Ergebnis liefert die Berechnung 17 % 5 mit dem Modulo-Operator?",
+        frage: "Welches Ergebnis liefert die Berechnung <span class='code'>17 % 5</span> mit dem <span class='orange'>Modulo-Operator?</span>",
         antworten: [
             "3",
             "3.4",
@@ -140,7 +140,7 @@ const anwendungsentwicklungFragen = [
             "1"
         ],
         richtigeAntwort: 2,
-        tipp: "Der Modulo-Operator gibt den Rest eine Division (Geteilt rechnen) zurück, das heißt wie viel bleibt übrig, wenn du 17 durch 5 rechnest, wenn du keine Kommazahl haben darfst?",
-        erklaerung: "Der Modulo Operator % gibt den Rest einer Division zurück.\nZum Beispiel wenn wir 9 / 3 rechnen, wissen wir, dass die 3 genau dreimal in die 9 passt. Wenn wir aber 10 / 3 rechnen, haben wir 3,333.... Normalerweise würden wir es als Kommazahl darstellen, aber wir könnten auch sagen, dass die 3 dreimal in die 10 passt und wir 1 übrig haben. Also 3 Rest 1. Dieser Rest der bei der Division übrig bleibt, können wir durch den Modulo % Operator darstellen. Das Bedeutet 17 / 5 wäre 3 Rest 2, da die 5 dreimal in die 17 reinpasst und genau 2 übrig bleiben. Somit bekommen wir 17 % 5 = 2.",
+        tipp: "Der Modulo-Operator gibt den <span class='orange'>Rest einer Division</span> (Geteilt rechnen) zurück, das heißt wie viel bleibt übrig, wenn du 17 durch 5 rechnest, wenn du keine Kommazahl haben darfst?",
+        erklaerung: "Der Modulo Operator <span class='code'>%</span> gibt den <span class='orange'>Rest einer Division</span> zurück.<br>Zum Beispiel wenn wir <span class='code'>9 / 3</span> rechnen, wissen wir, dass die <span class='code'>3</span> genau dreimal in die <span class='code'>9</span> passt.<br>Wenn wir aber <span class='code'>10 / 3</span> rechnen, haben wir <span class='code'>3,333...</span>.<br>Normalerweise würden wir es als Kommazahl darstellen, aber wir könnten auch sagen, dass die <span class='code'>3</span> dreimal in die <span class='code'>10</span> passt und wir <span class='code'>1</span> übrig haben.<br>Also <span class='orange'>3 Rest 1</span>. Dieser Rest der bei der Division übrig bleibt, können wir durch den Modulo <span class='code'>%</span> Operator darstellen. Das Bedeutet <span class='code'>17 / 5</span> wäre <span class='orange'>3 Rest 2</span>, da die <span class='code'>5</span> dreimal in die <span class='code'>17</span> reinpasst und genau <span class='code'>2</span> übrig bleiben. Somit bekommen wir <span class='code'>17 % 5 = 2</span>.",
     }
 ]

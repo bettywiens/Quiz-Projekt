@@ -8,18 +8,35 @@
     --opaque-blue: rgba(51, 214, 255, 0.349);
     --grey: #F0F0F0;
     --opaqueGrey: #f0f0f07e;
-    --border-radius: 30px;
+    --mediumGrey: #4b4b4bce;
+    --darkGrey: #1d1d1ded;
     --green: #97BE0D;
     --darkblue: #013a63;
     --nightblue: rgb(0, 26, 44);
 }
 
 @font-face {
-    font-family: 'realist';
-    font-style: normal;
-    font-weight: 200;
-    font-display: swap;
-    src: url(../fonts/Realist-Light_200804_151613.woff2) format('woff2'),url(../fonts/Realist-Light_200804_151608.woff) format('woff')
+    font-family: 'Manrope';
+    font-weight: 300;
+    src: url(../fonts/Manrope-Light.ttf) format('truetyoe');
+}
+
+@font-face {
+    font-family: 'Manrope';
+    font-weight: 400;
+    src: url(../fonts/Manrope-Regular.ttf) format('truetyoe');
+}
+
+@font-face {
+    font-family: 'Manrope';
+    font-weight: 700;
+    src: url(../fonts/Manrope-Bold.ttf) format('truetyoe');
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-weight: 400;
+    src: url(../fonts/JetBrainsMono-Regular.ttf) format('truetyoe');
 }
 
 body::before {
@@ -36,7 +53,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    font-family: 'realist', sans-serif;
+    font-family: 'Manrope', sans-serif;
     background-color: var(--nightblue);
     color: var(--grey);
 }
@@ -130,11 +147,11 @@ button.ausgewaehlt {
 .ergebnis-darstellung {
     background-color: var(--darkblue);
     border-radius: 20px;
-    margin: 100px;
     margin-top: 20px;
     padding: 15px;
     margin-left: 20%;
     margin-right: 20%;
+    margin-bottom: 10px;
 }
 
 .ergebnis-darstellung p {
@@ -158,8 +175,7 @@ button.ausgewaehlt {
 
 #bild {
     /*border: 1px solid white;*/
-    min-height: 300px;   
-    max-height: 350px; 
+    height: 300px;   
 }
 
 #bild img {
@@ -180,6 +196,7 @@ button.ausgewaehlt {
 #antworten button {
     width: 100%;
     padding: 15px;
+    font-size: 17px;
 }
 
 .navigation {
@@ -226,5 +243,31 @@ button.ausgewaehlt {
 
 .falsch.ausgewaehlt {
     background-color: red;
+}
+
+#weiteres-quiz {
+    padding-top: 10px;
+}
+
+#links {
+    margin-left: 0;
+}
+
+#rechts {
+    margin-right: 0;
+}
+
+.code {
+    font-family: 'JetBrains Mono', monospace;
+    background-color: var(--darkGrey);
+    border-radius: 15px;
+    padding: 5px 10px 5px 10px;   
+    border: 1px solid var(--mediumGrey)
+}
+
+.orange {
+    color: var(--orange);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
 }
 

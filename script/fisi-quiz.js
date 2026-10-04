@@ -32,14 +32,14 @@ function zeigeFrage() {
 
     const aktuelleFrage = systemintegrationFragen[aktuelleFrageIndex];
 
-    frageElement.textContent = aktuelleFrage.frage;
+    frageElement.innerHTML = aktuelleFrage.frage;
 
     antwortenElement.innerHTML = "";
 
     aktuelleFrage.antworten.forEach(function(antwort, index) {
         const button = document.createElement("button");
 
-        button.textContent = antwort;
+        button.innerHTML = antwort;
         button.classList.add("antwort-button");
 
         if (ausgewaehlteAntworten[aktuelleFrageIndex] == index) {
@@ -71,7 +71,7 @@ function zeigeFrage() {
     tippButton.textContent = "› Tipp";;
 
     tippText = document.createElement("div");
-    tippText.textContent = aktuelleFrage.tipp;
+    tippText.innerHTML = aktuelleFrage.tipp;
     tippText.style.display = "none";
 
     tippButton.addEventListener("click", function() {
@@ -143,7 +143,7 @@ function pruefeAntwort() {
     istErklaerung = true;
 
     tippButton.textContent = "⌄ Erklärung";
-    tippText.textContent = aktuelleFrage.erklaerung;
+    tippText.innerHTML = aktuelleFrage.erklaerung;
     tippText.style.display = "block";
 
     antwortButton.style.display = "none";

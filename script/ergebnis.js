@@ -37,18 +37,19 @@ ergebnis.innerHTML = `
             <div class="balken">
                 <div class="balken-fuellung" style="width: ${prozentFISI}%"></div>
             </div>
-        </div>
+            </div>
+            <div id="weiteres-quiz" class="navigation"></div>
     </div>
 `;
 
 const weiteresQuiz = document.getElementById("weiteres-quiz");
 
 weiteresQuiz.innerHTML = `
-    <button onclick="window.location.href='fiae-start.html'" class="weiterleiten"">
+    <button onclick="window.location.href='fiae-start.html'" class="weiterleiten" id="links"">
         Zum FIAE-Quiz
     </button>
 
-    <button onclick="window.location.href='fisi-start.html'" class="weiterleiten"">
+    <button onclick="window.location.href='fisi-start.html'" class="weiterleiten" id="rechts"">
         Zum FISI-Quiz
     </button>
 `
