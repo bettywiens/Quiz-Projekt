@@ -234,19 +234,19 @@ button.ausgewaehlt {
 }
 
 .richtig {
-    background-color: green;
+    background-color: rgb(48, 160, 48);
 }
 
 .richtig.ausgewaehlt {
-    background-color: green;
+    background-color: rgb(48, 160, 48);
 }
 
 .falsch {
-    background-color: red;
+    background-color: rgb(187, 42, 42);
 }
 
 .falsch.ausgewaehlt {
-    background-color: red;
+    background-color: rgb(187, 42, 42);
 }
 
 .code {

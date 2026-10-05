@@ -232,22 +232,6 @@ button.ausgewaehlt {
     margin-right: auto;
 }
 
-.richtig {
-    background-color: green;
-}
-
-.richtig.ausgewaehlt {
-    background-color: green;
-}
-
-.falsch {
-    background-color: red;
-}
-
-.falsch.ausgewaehlt {
-    background-color: red;
-}
-
 #weiteres-quiz {
     padding-top: 10px;
 }
